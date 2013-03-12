@@ -56,6 +56,32 @@ public class LinkedList {
 	}
 
 
+	/**
+	 * count
+	 *
+	 * 		Given an int, return how many times it occurs in the list.
+	 * @param check - the number that you want to check to see if it appears in the list
+	 * @return count - the number of times "check" appears in the list
+	 */
+	public static int count(int check) {
+		while (next!=null) {
+			if (check==value) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
