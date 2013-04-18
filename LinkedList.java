@@ -413,11 +413,48 @@ public class LinkedList {
 		return rand;
 	}
         
-        private void insert(int value, Node node) {
-            node.setNext(value, node.getNext());
+        private void insert(int value, Node next) {
+            next.setNext(new Node(value, next.getNext()));
         }
 
-        
+        public LinkedList sortedMerge(LinkedList a, LinkedList b) {
+        	LinkedList sortedList = new LinkedList();
+        	Node headA = a.getHead().getNext();
+        	Node headB = b.getHead().getNext();
+        	Node sortedHead = sortedList.getHead();
+
+        	while (headA != null && headB != null) {
+
+        		if (headA.getValue() < headB.getValue()) {
+        			sortedList.insert(headA.getValue(), sortedHead);
+        			headA = headA.getNext();
+        		}
+        		else {
+        			sortedList.insert(headB.getValue(), sortedHead);
+        			headB = headB.getNext();
+        		}
+        		// System.out.println("printing the list");
+        		// sortedList.print();
+        		sortedHead = sortedHead.getNext();
+        	}
+        	
+        		while (headB != null) {
+	        		sortedList.insert(headB.getValue(), sortedHead);
+	        		headB = headB.getNext();
+	        		sortedHead = sortedHead.getNext();
+        		}
+        		
+        	
+        	
+        		while (headA != null) {
+        			sortedList.insert(headA.getValue(), sortedHead);
+        			headA = headA.getNext();
+        			sortedHead = sortedHead.getNext();
+        		}
+        		
+        	
+        	return sortedList;
+        }
 
 }
 

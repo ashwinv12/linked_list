@@ -6,12 +6,33 @@
 public class Runner {
     
 	public static void main(String[] args){
-		testMethods();
+		// testMethods();
+		LinkedList a = new LinkedList();
+		LinkedList b = new LinkedList();
+		a.push(2);
+		a.push(21);
+		a.push(150);
+		a.push(151);
+		// a.push(71);
+		a.insertSort();
+		a.print();
+		System.out.println();
+		b.push(23);
+		b.push(17);
+		b.push(4);
+		b.push(8);
+		// b.push(87);
+		b.insertSort();
+		b.print();
+		System.out.println();
+		LinkedList sortedList = new LinkedList().sortedMerge(a, b);
+		sortedList.print();
+		System.out.println();
 	}
 
 	/**
 	 * testMethods
-	 * 		runs and prints the results of all the methods for debugging purposes
+	 * 		runs and prints the resultds of all the methods for debugging purposes
 	 *
 	 */
 	public static void testMethods(){
@@ -19,8 +40,8 @@ public class Runner {
 		* IF A METHOD TEST IS COMMENTED, IT MEANS THAT METHOD WORKS
 		*
 		**/
-		LinkedList list = new LinkedList();
-		LinkedList two = new LinkedList();
+		// LinkedList list = new LinkedList();
+		// LinkedList two = new LinkedList();
 		// //test head
 		// Node now = list.getHead();
 		// System.out.println("Head: " + list.getHead());
@@ -105,17 +126,13 @@ public class Runner {
 		// System.out.println("TOTAL LIST");
 		// System.out.println("----------------------------");
 		// list.print();
-                list.push(2);
-		list.push(21);
-		list.push(21);
-		list.push(150);
-		// list.push(11);
-		// list.push(11);
-		// list.push(11);
-		list.push(11);
-		list.push(71);
-		// list.push(71);
-		list.push(150);
+        
+		// a.push(11);
+		// a.push(11);
+		// a.push(11);
+		// a.push(21);
+		// a.push(71);
+		// a.push(150);
 		// list.push(1050);
 		// list.push(1050);
 		// list.push(1050);
@@ -170,19 +187,19 @@ public class Runner {
 		// System.out.println("---------------------------");
 		// splits[1].print();
 
-		//sortedMerge test
-		// System.out.println("SORTED MERGE TEST");
-		// System.out.println("LIST ONE");
-		// System.out.println("---------------------------");
-		// list.print();
-		// two.push(534);
-		// two.push(24);
-		// System.out.println("LIST TWO");
-		// System.out.println("---------------------------");
-		// two.print();
-		// linkedList a = linkedList.sortedMerge(list,two);
-		// System.out.println("COMBINED, SORTED LIST");
-		// System.out.println("---------------------------");
-		// a.print();
+		// sortedMerge test
+	// 	System.out.println("SORTED MERGE TEST");
+	// 	System.out.println("LIST ONE");
+	// 	System.out.println("---------------------------");
+	// 	list.print();
+	// 	two.push(534);
+	// 	two.push(24);
+	// 	System.out.println("LIST TWO");
+	// 	System.out.println("---------------------------");
+	// 	two.print();
+	// 	LinkedList a = LinkedList.sortedMerge(list,two);
+	// 	System.out.println("COMBINED, SORTED LIST");
+	// 	System.out.println("---------------------------");
+	// 	a.print();
 	}
 }
