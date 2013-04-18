@@ -46,6 +46,12 @@ public class Node {
 		this.next = next;
 	}
 
-
+        public String toString(){
+		boolean nextExists = true;
+		if(getNext() == null){
+			nextExists = false;
+		}
+		return "value: " + value + ", next Node reference: " + nextExists + "\t"; 
+	}
 
 }
