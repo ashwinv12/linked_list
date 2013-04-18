@@ -413,11 +413,11 @@ public class LinkedList {
 		return rand;
 	}
         
-        public void insert(int[] values) {
-            for (int i=0;i<values.length;i++) {
-                insertNth(i, values[i]);
-            }
+        private void insert(int value, Node node) {
+            node.setNext(value, node.getNext());
         }
+
+        
 
 }
 
