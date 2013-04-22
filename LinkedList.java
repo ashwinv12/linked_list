@@ -456,6 +456,21 @@ public class LinkedList {
         	return sortedList;
         }
 
+        /**
+	 * mergeSort
+	 * 		takes in a LinkedList and sorts it ascendingly
+	 *
+	 *
+	 * @return  LinkedList
+	 */
+	public LinkedList mergeSort() {
+		if(length() <= 1){
+			return this;
+		}
+		LinkedList[] list = this.frontBackSplit();
+		return sortedMerge(list[0].mergeSort(), list[1].mergeSort());
+	}
+
 }
 
 
