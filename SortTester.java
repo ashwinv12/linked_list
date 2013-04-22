@@ -263,61 +263,61 @@ public class SortTester extends Tester {
 		runTestsForMethod(methodName, methodNumber, methodArgs, tests);
 	}
 
-	// @Test 
-	// public void m20_makeReverse() {
-	// 	String methodName = "makeReverse";
-	// 	int methodNumber = 20;
-	// 	Class[] methodArgs = null;
+	@Test 
+	public void m20_makeReverse() {
+		String methodName = "makeReverse";
+		int methodNumber = 20;
+		Class[] methodArgs = null;
 
-	// 	ArrayList<MethodTest> tests = new ArrayList<MethodTest>();
+		ArrayList<MethodTest> tests = new ArrayList<MethodTest>();
 
-	// 	tests.add(new MethodTest() {
-	// 		public void run() throws Exception{
-	// 			TestableLinkedList list = new TestableLinkedList();
-	// 			LinkedList result = (LinkedList)method.invoke(list);
-	// 			TestableLinkedList test = new TestableLinkedList();
-	// 			check(test.equals(result), message);
-	// 		}
-	// 	}.message("should not change an empty list"));
+		tests.add(new MethodTest() {
+			public void run() throws Exception{
+				TestableLinkedList list = new TestableLinkedList();
+				LinkedList result = (LinkedList)method.invoke(list);
+				TestableLinkedList test = new TestableLinkedList();
+				check(test.equals(result), message);
+			}
+		}.message("should not change an empty list"));
 
-	// 	tests.add(new MethodTest() {
-	// 		public void run() throws Exception{
-	// 			TestableLinkedList list = new TestableLinkedList(new int[]{4});
-	// 			LinkedList result = (LinkedList)method.invoke(list);
-	// 			TestableLinkedList test = new TestableLinkedList(new int[]{4});
-	// 			check(test.equals(result), message);
-	// 		}
-	// 	}.message("should not change a list with 1 item"));
+		tests.add(new MethodTest() {
+			public void run() throws Exception{
+				TestableLinkedList list = new TestableLinkedList(new int[]{4});
+				LinkedList result = (LinkedList)method.invoke(list);
+				TestableLinkedList test = new TestableLinkedList(new int[]{4});
+				check(test.equals(result), message);
+			}
+		}.message("should not change a list with 1 item"));
 
-	// 	tests.add(new MethodTest() {
-	// 		public void run() throws Exception{
-	// 			TestableLinkedList list = new TestableLinkedList(new int[]{1,2,3});
-	// 			LinkedList result = (LinkedList)method.invoke(list);
-	// 			TestableLinkedList test = new TestableLinkedList(new int[]{3,2,1});
-	// 			check(test.equals(result), message);
-	// 		}
-	// 	}.message("should change {1, 2, 3} to {3, 2, 1}"));
+		tests.add(new MethodTest() {
+			public void run() throws Exception{
+				TestableLinkedList list = new TestableLinkedList(new int[]{1,2,3});
+				LinkedList result = (LinkedList)method.invoke(list);
+				TestableLinkedList test = new TestableLinkedList(new int[]{3,2,1});
+				check(test.equals(result), message);
+			}
+		}.message("should change {1, 2, 3} to {3, 2, 1}"));
 
-	// 	tests.add(new MethodTest() {
-	// 		public void run() throws Exception{
-	// 			TestableLinkedList list = new TestableLinkedList(new int[]{1,6,5,3,1,4});
-	// 			TestableLinkedList test = new TestableLinkedList(new int[]{4,1,3,5,6,1});
-	// 			LinkedList result = (LinkedList)method.invoke(list);
-	// 			check(test.equals(result), message);
-	// 		}
-	// 	}.message("should change {1, 6, 5, 3, 1, 4} to {4, 1, 3, 5, 6, 1}"));
+		tests.add(new MethodTest() {
+			public void run() throws Exception{
+				TestableLinkedList list = new TestableLinkedList(new int[]{1,6,5,3,1,4});
+				TestableLinkedList test = new TestableLinkedList(new int[]{4,1,3,5,6,1});
+				LinkedList result = (LinkedList)method.invoke(list);
+				check(test.equals(result), message);
+			}
+		}.message("should change {1, 6, 5, 3, 1, 4} to {4, 1, 3, 5, 6, 1}"));
 
-	// 	tests.add(new MethodTest() {
-	// 		public void run() throws Exception{
-	// 			TestableLinkedList list = new TestableLinkedList(new int[]{1,1,1,1,1,1,1,1,2});
-	// 			TestableLinkedList test = new TestableLinkedList(new int[]{2,1,1,1,1,1,1,1,1});
-	// 			LinkedList result = (LinkedList)method.invoke(list);
-	// 			check(test.equals(result), message);
-	// 		}
-	// 	}.message("should change {1, 1, 1, 1, 1, 1, 1, 1, 2} to {2, 1, 1, 1, 1, 1, 1, 1, 1}"));
+		tests.add(new MethodTest() {
+			public void run() throws Exception{
+				TestableLinkedList list = new TestableLinkedList(new int[]{1,1,1,1,1,1,1,1,2});
+				TestableLinkedList test = new TestableLinkedList(new int[]{2,1,1,1,1,1,1,1,1});
+				LinkedList result = (LinkedList)method.invoke(list);
+				check(test.equals(result), message);
+			}
+		}.message("should change {1, 1, 1, 1, 1, 1, 1, 1, 2} to {2, 1, 1, 1, 1, 1, 1, 1, 1}"));
 
-	// 	runTestsForMethod(methodName, methodNumber, methodArgs, tests);
-	// }
+		runTestsForMethod(methodName, methodNumber, methodArgs, tests);
+	}
 
 	// @Test 
 	// public void m21_reverse() {

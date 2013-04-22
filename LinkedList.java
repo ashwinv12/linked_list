@@ -479,6 +479,29 @@ public class LinkedList {
 		return sortedMerge(sortedList[0].mergeSort(), sortedList[1].mergeSort());
 	}
 
+
+	/**
+	 * makeReverse
+	 * 		make and return a reversed version of this list
+	 *
+	 * @return  reversedList - the list in reverse order
+	 */
+	public LinkedList makeReverse() {
+		LinkedList reversedList = new LinkedList();
+		int length = length();
+		Node current = head;
+
+		for (int i=0;i<length;i++) {
+			current = current.getNext();
+			reversedList.push(current.getValue());
+		}
+
+		return reversedList;
+	}
+
+
+	
+
 }
 
 
