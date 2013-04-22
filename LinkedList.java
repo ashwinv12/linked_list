@@ -460,8 +460,10 @@ public class LinkedList {
         	return sortedList;
         }
 
+
  //        
-         /**
+         /*
+
 	 * mergeSort
 	 * 		takes in a LinkedList and sorts it ascendingly
 	 *
@@ -472,6 +474,7 @@ public class LinkedList {
 		if(length() <= 1){
 			return this;
 		}
+
 		LinkedList[] sortedList = this.frontBackSplit();
 		return sortedMerge(sortedList[0].mergeSort(), sortedList[1].mergeSort());
 	}
