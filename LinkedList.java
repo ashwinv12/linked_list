@@ -106,14 +106,7 @@ public class LinkedList {
 		}
 	}
 
-	public void clear() {
-		head = new Node();
-		// length = 0;
-	}
-
-        public void empty() {
-		head.setNext(null);
-	}
+	
 
 	/**
 	 * count
@@ -156,6 +149,23 @@ public class LinkedList {
 			
 		}
 		return -1;
+	}
+
+	/**
+	*clear
+	*	empties the list
+	*/
+	public void clear() {
+		head = new Node();
+		// length = 0;
+	}
+
+	/**
+	*empty
+	*	empties the list
+	*/
+        public void empty() {
+		head.setNext(null);
 	}
 
 	/**
@@ -329,35 +339,7 @@ public class LinkedList {
                 
 	}
 
-	/**
-	* alternatingSplit
-	*		returns a length 2 array of LinkedLists; the first list consists of the values of the odd nodes, and the second consists of the values of the even nodes
-	*
-	*@return LinkedList[2]
-	*
-	**/
-	public LinkedList[] alternatingSplit() {
-		LinkedList list1 = new LinkedList();
-		LinkedList list2 = new LinkedList();
-		LinkedList[] listarray = {list1, list2};
-		Node current = head;
-		int length = length();
-		int[] listvalues = new int[length];
-
-		for (int i=0;i<length;i++) {
-			current = current.getNext();
-			listvalues[i] = current.getValue();
-		}
-		for (int i=length-1;i>=0;i--) {
-			if (i%2 != 0) {
-				second.push(values[i]);
-			}
-			else {
-				first.push(values[i]);
-			}
-		}
-		return listvalues;
-	}
+	
 
         /**
 	* removeDuplicates
@@ -389,38 +371,59 @@ public class LinkedList {
 
 	}
         
-       public static void printarray(int[] thingy) {
-		System.out.print("[");
-		for(int i = 0; i < thingy.length; i++) {
-			System.out.print(thingy[i]);
-			if(i!=thingy.length-1) {
-				System.out.print(",");
-			}
-		}
-		System.out.print("]");
-	} 
+       
         
-        public static int[] bubbleSort(int[] rand) {
-		int temp = 0;
-		boolean switchcount = true;
-		while(switchcount) {
-			switchcount = false;
-			for( int i = 0; i < rand.length-1; i++) {
-				if(rand[i]>rand[i+1]) {
-					switchcount = true;
-					temp = rand[i];
-					rand[i] = rand[i+1];
-					rand[i+1] = temp;
-				}
-			}
-		}
-		return rand;
-	}
-        
-        private void insert(int value, Node next) {
-            next.setNext(new Node(value, next.getNext()));
-        }
 
+	// Merge Sort methods
+
+    private void insert(int value, Node next) {
+            next.setNext(new Node(value, next.getNext()));
+    }
+
+        /**
+	* alternatingSplit
+	*		returns a length 2 array of LinkedLists; the first list consists of the values of the odd nodes, and the second consists of the values of the even nodes
+	*
+	*@return LinkedList[2]
+	*
+	**/
+	public LinkedList[] alternatingSplit() {
+		LinkedList list1 = new LinkedList();
+		LinkedList list2 = new LinkedList();
+		LinkedList[] listarray = {list1, list2};
+		Node current = head;
+		int length = length();
+		int[] listvalues = new int[length];
+
+		for (int i=0;i<length;i++) {
+			current = current.getNext();
+			listvalues[i] = current.getValue();
+		}
+		for (int i=length-1;i>=0;i--) {
+			if (i%2 != 0) {
+				second.push(values[i]);
+			}
+			else {
+				first.push(values[i]);
+			}
+		}
+		return listvalues;
+	}
+
+
+		/**
+	* sortedMerge
+	*		takes in 2 LinkedLists and returns the result of merging the 2 lists 
+	*			and organizing the result in ascending order
+	*
+	*@param a - the first list you want to merge
+	*@param b - the second list you want to merge
+	*
+	* precondition: both a and b must be sorted in ascending order 
+	*
+	*@return LinkedList
+	*
+	**/
         public static LinkedList sortedMerge(LinkedList a, LinkedList b) {
         	LinkedList sortedList = new LinkedList();
         	Node headA = a.getHead().getNext();
@@ -433,16 +436,14 @@ public class LinkedList {
         			sortedList.insert(headA.getValue(), sortedHead);
         			headA = headA.getNext();
         			
-        			// sortedHead = sortedHead.getNext();
+        			
         		}
         		else {
         			sortedList.insert(headB.getValue(), sortedHead);
         			headB = headB.getNext();
-        			// sortedHead = sortedHead.getNext();
-        			// sortedHead = sortedHead.getNext();
+        			
         		}
-        		// System.out.println("printing the list");
-        		// sortedList.print();
+        		
         		sortedHead = sortedHead.getNext();
         		
         	}
@@ -504,6 +505,7 @@ public class LinkedList {
 	}
 
 
+	// Reversal
 
 	/**
 	 * reverse 
