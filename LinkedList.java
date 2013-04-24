@@ -421,7 +421,7 @@ public class LinkedList {
             next.setNext(new Node(value, next.getNext()));
         }
 
-        public LinkedList sortedMerge(LinkedList a, LinkedList b) {
+        public static LinkedList sortedMerge(LinkedList a, LinkedList b) {
         	LinkedList sortedList = new LinkedList();
         	Node headA = a.getHead().getNext();
         	Node headB = b.getHead().getNext();
@@ -432,22 +432,20 @@ public class LinkedList {
         		if (headA.getValue() < headB.getValue()) {
         			sortedList.insert(headA.getValue(), sortedHead);
         			headA = headA.getNext();
+        			
+        			// sortedHead = sortedHead.getNext();
         		}
         		else {
         			sortedList.insert(headB.getValue(), sortedHead);
         			headB = headB.getNext();
+        			// sortedHead = sortedHead.getNext();
+        			// sortedHead = sortedHead.getNext();
         		}
         		// System.out.println("printing the list");
         		// sortedList.print();
         		sortedHead = sortedHead.getNext();
-        	}
-        	
-        		while (headB != null) {
-	        		sortedList.insert(headB.getValue(), sortedHead);
-	        		headB = headB.getNext();
-	        		sortedHead = sortedHead.getNext();
-        		}
         		
+        	}
         	
         	
         		while (headA != null) {
@@ -455,12 +453,21 @@ public class LinkedList {
         			headA = headA.getNext();
         			sortedHead = sortedHead.getNext();
         		}
+
+        		while (headB != null) {
+	        		sortedList.insert(headB.getValue(), sortedHead);
+	        		headB = headB.getNext();
+	        		sortedHead = sortedHead.getNext();
+        		}
         		
         	
         	return sortedList;
         }
 
-        /**
+
+ //        
+         /*
+
 	 * mergeSort
 	 * 		takes in a LinkedList and sorts it ascendingly
 	 *
@@ -471,11 +478,33 @@ public class LinkedList {
 		if(length() <= 1){
 			return this;
 		}
-		LinkedList[] list = this.frontBackSplit();
-		return sortedMerge(list[0].mergeSort(), list[1].mergeSort());
+
+		LinkedList[] sortedList = this.frontBackSplit();
+		return sortedMerge(sortedList[0].mergeSort(), sortedList[1].mergeSort());
 	}
 
 
+	/**
+	 * makeReverse
+	 * 		make and return a reversed version of this list
+	 *
+	 * @return  reversedList - the list in reverse order
+	 */
+	public LinkedList makeReverse() {
+		LinkedList reversedList = new LinkedList();
+		int length = length();
+		Node current = head;
+
+		for (int i=0;i<length;i++) {
+			current = current.getNext();
+			reversedList.push(current.getValue());
+		}
+
+		return reversedList;
+	}
+
+
+<<<<<<< HEAD
 
 	/**
 	 * reverse 
@@ -544,6 +573,9 @@ public class LinkedList {
 
 
 
+=======
+	
+>>>>>>> 00fa5b7e57963344b303b1095f65187d8517ea1b
 
 }
 
