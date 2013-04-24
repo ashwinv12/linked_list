@@ -6,13 +6,14 @@
 public class LinkedList {
 	
 	private Node head, current;
-	// public int length = 0;
+	
 
 	public static void main(String[] args) {
-		// System.out.println("CORRECT FILE IS RUNNING");
+		
 		LinkedList l = new LinkedList();
 		// l.test();
 	}
+
 	/**
 	 * Constructors
 	 * 
@@ -25,42 +26,10 @@ public class LinkedList {
     public Node getHead() {
 		return head;
 	}
-// 	public void test() {
-// 		System.out.println();
-// 		System.out.println("List Values:");
-// 		System.out.println("CORRECT FILE IS RUNNING");
-		
-// 		push(5);
-// 		push(3);
-//                 push(2);
-//                 push(13);
-//                 push(4);
-//                 push(7);
-//                 push(8);
-//                 push(1);
-//                 push(3);
-//                 push(5);
-                
-                
-		
-// //		print();
-// 		System.out.println();
-// 		System.out.println("Length of List: " + length());
-// 		System.out.println("Number of Threes: " + count(3));
-// 		System.out.println("Node at index 2: " + getNth(2));
-// 		System.out.println("Index of 7: " + linearSearch(7));
-                
-// //                System.out.println("Pop results: " + pop());
-// //                
-// //                print();
-//                 System.out.println();
-// //                sortedInsert(5);
-// //                print();
-// //                insertSort();
-// //                print();
-// //                frontBackSplit();
-// //                print();
-// 	}
+
+
+	// methods
+
 	/**
 	 * push
 	 *		Given an int, add a new node at the head of the list with this value.
@@ -88,6 +57,11 @@ public class LinkedList {
 		}
 		return length;
 	}
+	
+	/**
+	 * getLength
+	 * 		gets the length of the LinkedList for test code to run
+	 */
 	public int getLength() {
 		int length = 0;
 		Node next = head;
@@ -124,8 +98,7 @@ public class LinkedList {
 			System.out.println("List is Empty");
 			return;
 		}
-
-//                System.out.print("head   ");
+		
 		Node current = head.getNext();
 		while (current != null) {
 			System.out.print(current.getValue() + "  ");
@@ -355,6 +328,37 @@ public class LinkedList {
 		return a;
                 
 	}
+
+	/**
+	* alternatingSplit
+	*		returns a length 2 array of LinkedLists; the first list consists of the values of the odd nodes, and the second consists of the values of the even nodes
+	*
+	*@return LinkedList[2]
+	*
+	**/
+	public LinkedList[] alternatingSplit() {
+		LinkedList list1 = new LinkedList();
+		LinkedList list2 = new LinkedList();
+		LinkedList[] listarray = {list1, list2};
+		Node current = head;
+		int length = length();
+		int[] listvalues = new int[length];
+
+		for (int i=0;i<length;i++) {
+			current = current.getNext();
+			listvalues[i] = current.getValue();
+		}
+		for (int i=length-1;i>=0;i--) {
+			if (i%2 != 0) {
+				second.push(values[i]);
+			}
+			else {
+				first.push(values[i]);
+			}
+		}
+		return listvalues;
+	}
+
         /**
 	* removeDuplicates
 	* 		deletes any duplicate nodes from the list
@@ -470,6 +474,76 @@ public class LinkedList {
 		LinkedList[] list = this.frontBackSplit();
 		return sortedMerge(list[0].mergeSort(), list[1].mergeSort());
 	}
+
+
+
+	/**
+	 * reverse 
+	 * 		reverses the original list by iteratively rearranging all the next references
+	 */
+	public void reverse() {
+		int length = length();
+		if (length<=1) {
+			return;
+		}
+
+		Node current = head;
+		Node last = head;
+		Node temp;
+
+		for (int i=0;i<length;i++) {
+			for (int j=0;j<length;j++) {
+				last = last.getNext();
+			}
+
+			temp = current.getNext();
+			current.setNext(last);
+			last.setNext(temp);
+			current = current.getNext();
+
+			if (i == length-1) {
+				last.setNext(null);
+			}
+
+			else {
+				last = head;
+			}
+		}
+	}
+
+	/**
+	* recursiveReverse
+	*    reverses the original list recursively
+	*
+	**/	
+	public void recursiveReverse() {
+		int length = length();
+		if (length<=1) {
+			return;
+		}
+		Node last = helpReverse(head.getNext());
+		last.setNext(null);
+	}
+
+
+	/**
+	* helpReverse
+	*    private method that actually does the sorting in recursiveReverse
+	*
+	* @param node - first Node in a list that needs to be reversed
+	*
+	* @return Node
+	**/
+	private Node helpReverse(Node node) {
+		if (node.getNext() == null) {
+			return null;
+		}
+
+		return helpReverse(node.getNext()).setNext(node);
+	}
+
+
+
 
 }
 
