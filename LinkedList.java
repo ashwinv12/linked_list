@@ -504,7 +504,6 @@ public class LinkedList {
 	}
 
 
-<<<<<<< HEAD
 
 	/**
 	 * reverse 
@@ -573,9 +572,7 @@ public class LinkedList {
 
 
 
-=======
-	
->>>>>>> 00fa5b7e57963344b303b1095f65187d8517ea1b
+
 
 }
 
