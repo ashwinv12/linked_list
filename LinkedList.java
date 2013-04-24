@@ -23,7 +23,7 @@ public class LinkedList {
 		this.head = new Node(0, null);
 	}
 
-    public Node getHead() {
+	public Node getHead() {
 		return head;
 	}
 
@@ -42,7 +42,7 @@ public class LinkedList {
 		head.setNext(n);
 	}
 
-        
+	
 	/**
 	 * length
 	 * 		returns the number of nodes in the linked list
@@ -164,7 +164,7 @@ public class LinkedList {
 	*empty
 	*	empties the list
 	*/
-        public void empty() {
+	public void empty() {
 		head.setNext(null);
 	}
 
@@ -174,7 +174,7 @@ public class LinkedList {
 	 * precondition - list is not empty
 	 * @return current.getValue() - value of the node closest to head
 	 */
-        public int pop(){
+	public int pop(){
 		Node first = head.getNext();
 		Node now = first.getNext();
 		head.setNext(now);
@@ -190,19 +190,19 @@ public class LinkedList {
 	 *
 	 * @return index - index of n
 	 */
-        public int linearSearch(int n) {
-	 	int index = 0;
-	 	Node current = head;
+	public int linearSearch(int n) {
+		int index = 0;
+		Node current = head;
 	 	// boolean found = false;
-	 	while(current.getNext()!=null) {
-	 		current = current.getNext();
-	 		if(current.getValue() == n) {
-                            return index;
-                        }
-	 		index++;
-	 	}
-	 	return -1;
-	 }
+		while(current.getNext()!=null) {
+			current = current.getNext();
+			if(current.getValue() == n) {
+				return index;
+			}
+			index++;
+		}
+		return -1;
+	}
         /**
 	 * insertNth
 	 * 		insert the given value into the linked list at the given  index
@@ -212,22 +212,22 @@ public class LinkedList {
 	 */
 
         public void insertNth(int value, int index){
-		Node n = new Node(index);
-		Node now = head;
-		if(value == 0){
-			push(index);
-		}
-		if(value > length()){
-			return;
-		}
-		for(int i = 0; i<=value; i++){
-			now = now.getNext();
-			if(i == value-1){
-				n.setNext(now.getNext());
-				now.setNext(n);
-			}
-		}
-	}
+        	Node n = new Node(index);
+        	Node now = head;
+        	if(value == 0){
+        		push(index);
+        	}
+        	if(value > length()){
+        		return;
+        	}
+        	for(int i = 0; i<=value; i++){
+        		now = now.getNext();
+        		if(i == value-1){
+        			n.setNext(now.getNext());
+        			now.setNext(n);
+        		}
+        	}
+        }
         /**
 	 * sortedInsert
 	 * 		creates and inserts a node into a sorted linkedList so that the list stays sorted
@@ -236,22 +236,22 @@ public class LinkedList {
 	 * @param  value - value of the node you want to insert
 	 * 
 	 */
-       public void sortedInsert(int value){
-		Node now = head.getNext();
-		int index = 0;
-		boolean run = true;
-		if(now != null){
-			while(run && now.getValue()<value){
-				index++;
-				if(now.getNext() != null){
-					now = now.getNext();
-				}else{
-					run = false;
-				}	
-			}
-		}	
-		insertNth(index, value);
-	}
+        public void sortedInsert(int value){
+        	Node now = head.getNext();
+        	int index = 0;
+        	boolean run = true;
+        	if(now != null){
+        		while(run && now.getValue()<value){
+        			index++;
+        			if(now.getNext() != null){
+        				now = now.getNext();
+        			}else{
+        				run = false;
+        			}	
+        		}
+        	}	
+        	insertNth(index, value);
+        }
 
 	/**
 	* insertSort
@@ -277,7 +277,7 @@ public class LinkedList {
 	*@param list - the LinkedList you wish to append to this list
 	*
 	**/
-    public void append(LinkedList list) {
+	public void append(LinkedList list) {
 		Node next = head;
 		while(next.getNext()!=null) {
 			next = next.getNext();
@@ -291,7 +291,7 @@ public class LinkedList {
 	*@return LinkedList[2]
 	*
 	**/
-        public LinkedList[] frontBackSplit() {
+	public LinkedList[] frontBackSplit() {
 		LinkedList[] a = new LinkedList[2];
 		if (length() == 0) {
 			LinkedList[] empty = new LinkedList[2];
@@ -336,7 +336,7 @@ public class LinkedList {
                 // System.out.println();
                 // a[1].print();
 		return a;
-                
+		
 	}
 
 	
@@ -348,8 +348,8 @@ public class LinkedList {
 	*precondition: the list must be sorted in increasing order
 	*
 	**/
-        public void removeDuplicates() {
-        	insertSort();
+	public void removeDuplicates() {
+		insertSort();
 		
 		if (length() <2) {
 			return;
@@ -370,15 +370,15 @@ public class LinkedList {
 		}
 
 	}
-        
-       
-        
+	
+	
+	
 
 	// Merge Sort methods
 
-    private void insert(int value, Node next) {
-            next.setNext(new Node(value, next.getNext()));
-    }
+	private void insert(int value, Node next) {
+		next.setNext(new Node(value, next.getNext()));
+	}
 
         /**
 	* alternatingSplit
@@ -424,46 +424,46 @@ public class LinkedList {
 	*@return LinkedList
 	*
 	**/
-        public static LinkedList sortedMerge(LinkedList a, LinkedList b) {
-        	LinkedList sortedList = new LinkedList();
-        	Node headA = a.getHead().getNext();
-        	Node headB = b.getHead().getNext();
-        	Node sortedHead = sortedList.getHead();
+	public static LinkedList sortedMerge(LinkedList a, LinkedList b) {
+		LinkedList sortedList = new LinkedList();
+		Node headA = a.getHead().getNext();
+		Node headB = b.getHead().getNext();
+		Node sortedHead = sortedList.getHead();
 
-        	while (headA != null && headB != null) {
+		while (headA != null && headB != null) {
 
-        		if (headA.getValue() < headB.getValue()) {
-        			sortedList.insert(headA.getValue(), sortedHead);
-        			headA = headA.getNext();
-        			
-        			
-        		}
-        		else {
-        			sortedList.insert(headB.getValue(), sortedHead);
-        			headB = headB.getNext();
-        			
-        		}
-        		
-        		sortedHead = sortedHead.getNext();
-        		
-        	}
-        	
-        	
-        		while (headA != null) {
-        			sortedList.insert(headA.getValue(), sortedHead);
-        			headA = headA.getNext();
-        			sortedHead = sortedHead.getNext();
-        		}
+			if (headA.getValue() < headB.getValue()) {
+				sortedList.insert(headA.getValue(), sortedHead);
+				headA = headA.getNext();
+				
+				
+			}
+			else {
+				sortedList.insert(headB.getValue(), sortedHead);
+				headB = headB.getNext();
+				
+			}
+			
+			sortedHead = sortedHead.getNext();
+			
+		}
+		
+		
+		while (headA != null) {
+			sortedList.insert(headA.getValue(), sortedHead);
+			headA = headA.getNext();
+			sortedHead = sortedHead.getNext();
+		}
 
-        		while (headB != null) {
-	        		sortedList.insert(headB.getValue(), sortedHead);
-	        		headB = headB.getNext();
-	        		sortedHead = sortedHead.getNext();
-        		}
-        		
-        	
-        	return sortedList;
-        }
+		while (headB != null) {
+			sortedList.insert(headB.getValue(), sortedHead);
+			headB = headB.getNext();
+			sortedHead = sortedHead.getNext();
+		}
+		
+		
+		return sortedList;
+	}
 
 
  //        
@@ -475,14 +475,14 @@ public class LinkedList {
 	 *
 	 * @return  LinkedList
 	 */
-	public LinkedList mergeSort() {
-		if(length() <= 1){
-			return this;
-		}
+         public LinkedList mergeSort() {
+         	if(length() <= 1){
+         		return this;
+         	}
 
-		LinkedList[] sortedList = this.frontBackSplit();
-		return sortedMerge(sortedList[0].mergeSort(), sortedList[1].mergeSort());
-	}
+         	LinkedList[] sortedList = this.frontBackSplit();
+         	return sortedMerge(sortedList[0].mergeSort(), sortedList[1].mergeSort());
+         }
 
 
 	/**
